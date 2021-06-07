@@ -4,22 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Transation;
 
 class UserController extends Controller
 {
     //
     public function listUser(){
         $users = User::all();
-        
         return view('listUsers', [
             'users'=>$users
         ]);
     }
 
     public function userId(User $user){
-        //dd($user);
+        $transations = $user->transation()->get();
         return view('userId', [
-            'user'=>$user
+            'user'=>$user,
+            'transations'=>$transations
         ]);
         
     }

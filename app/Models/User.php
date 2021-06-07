@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -22,5 +23,9 @@ class User extends Authenticatable
         'birthday',
         'cpf',
     ];
+
+    public function transation(){
+        return $this->hasMany(Transation::class, 'user_id', 'id');
+    }
 
 }

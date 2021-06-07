@@ -24,10 +24,17 @@ Route::get('/', function () {
 
 Route ::get('/usuario', [App\Http\Controllers\UserController::class, 'listUser'])->name('users.listUsers');
 Route ::get('/usuario/novo', [App\Http\Controllers\UserController::class, 'addUser'])->name('users.formAdd');
+Route ::get('/transacao/novo{user}', [App\Http\Controllers\TransationController::class, 'addTransation'])->name('transation.formAdd');
+
+
 Route ::get('/usuario/{user}', [App\Http\Controllers\UserController::class, 'userId'])->name('users.idUser');
 
 Route ::post('/usuario/store', [App\Http\Controllers\UserController::class, 'storeUser'])->name('users.store');
+Route ::post('/transacao/store', [App\Http\Controllers\TransationController::class, 'storeTransation'])->name('transation.store');
+
 
 Route::delete('/usuario/destroy{user}', [App\Http\Controllers\UserController::class, 'destroyUser'])->name('user.destroy');
+Route::delete('/transacao/destroy{transation}', [App\Http\Controllers\TransationController::class, 'destroyTransation'])->name('transation.destroy');
+
 
 
